@@ -1,4 +1,11 @@
 ou_category
 ===========
 
-ou_category(todayhumor_category, ì˜¤ìœ  ì¹´í…Œê³ ë¦¬) is chrome extension for block specific category what you want in todayhumor website.
+ou_category (todayhumor_category, ¿ÀÀ¯ Ä«Å×°í¸®)
+is chrome extension for block specific category what you want in todayhumor website.
+
+##ScreenShot
+![Screenshot](https://github.com/kim135797531/ou_category/raw/master/example.png)
+
+##Google Chrome Web Store
+https://chrome.google.com/webstore/detail/¿ÀÀ¯-Ä«Å×°í¸®-¼û±â±â/acnlndmmhnpopbjdijkfpjbkhboccnaa/related?hl=ko
