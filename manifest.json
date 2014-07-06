@@ -5,7 +5,7 @@
   "description": "오늘의 유머 사이트에서 보기 싫은 카테고리를 숨겨줍니다.
   카테고리 추가가 귀찮아서 몇 개 없습니다.
   카테고리 추가를 원하시면 kim135797531@naver.com 으로 연락 바랍니다 ^^",
-  "version": "0.1",
+  "version": "0.11",
 
   "permissions": [
     "http://www.todayhumor.co.kr/"

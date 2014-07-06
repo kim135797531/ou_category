@@ -1,9 +1,9 @@
 var animal;
 var baby;
 var mid;
+var lol;
 
 function initPopup(){
-  console.log("init");
   var saveButton = document.getElementById('saveButton');
   saveButton.addEventListener('click', saveOptions, false);
   loadOptions();
@@ -16,6 +16,7 @@ function loadOptions(){
   animal = categoryLoadList.animal;
   baby = categoryLoadList.baby;
   mid = categoryLoadList.mid;
+  lol = categoryLoadList.lol;
 }
 function setCategoryBox(){
   categoryBox = document.getElementById("categoryBox");
@@ -27,6 +28,9 @@ function setCategoryBox(){
   }
   if(mid == 1){
     categoryBox.mid.checked = true;
+  }
+  if(lol == 1){
+    categoryBox.lol.checked = true;
   }
 }
 
@@ -47,15 +51,20 @@ function getCategoryBox(){
   }else{
     mid = 0;
   }
+  if(categoryBox.lol.checked == true){
+    lol = 1;
+  }else{
+    lol = 0;
+  }
 }
 
 function saveOptions(){
-  console.log("save");
   getCategoryBox();
   var categorySaveListJSON = {};
   categorySaveListJSON['animal']=animal;
   categorySaveListJSON['baby']=baby;
   categorySaveListJSON['mid']=mid;
+  categorySaveListJSON['lol']=lol;
   localStorage["category_list"] = JSON.stringify(categorySaveListJSON);
 }
 
