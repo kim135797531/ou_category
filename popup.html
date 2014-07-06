@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>오유 카테고리 숨기기</title>
+    <style>
+      body {
+        min-width: 357px;
+        overflow-x: hidden;
+      }
+
+      img {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <h3>안 볼 게시판을 클릭하세용! ex) 동물</h3>
+    <form id="categoryBox">
+        <input type="checkbox" name="animal">동물</option>
+        <input type="checkbox" name="baby">육아</option>
+        <input type="checkbox" name="mid">외국 드라마</option>
+    </form>
+    <br>
+    <button id="saveButton">저장</button>
+    <br>
+  </body>
+</html>
