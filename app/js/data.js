@@ -1,7 +1,7 @@
-{
-  "animal": "µ¿¹°",
-  "baby": "À°¾Æ",
-  "mid": "¿Ü±¹ µå¶ó¸¶",
-  "lol": "°ÔÀÓ - ·Ñ",
-  "ani": "¾Ö´Ï"
-}
+var categoryInitListJSONArray = [
+  {"en" : "animal", "kr" : "ë™ë¬¼", "value" : "0"},
+  {"en" : "baby", "kr" : "ìœ¡ì•„", "value" : "0"},
+  {"en" : "mid", "kr" : "ì™¸êµ­ ë“œë¼ë§ˆ", "value" : "0"},
+  {"en" : "lol", "kr" : "ê²Œì„ - ë¡¤", "value" : "0"},
+  {"en" : "ani", "kr" : "ì• ë‹ˆ", "value" : "0"}
+]
