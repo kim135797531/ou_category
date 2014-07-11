@@ -3,5 +3,6 @@ var categoryInitListJSONArray = [
   {"en" : "baby", "kr" : "육아", "value" : "0"},
   {"en" : "mid", "kr" : "외국 드라마", "value" : "0"},
   {"en" : "lol", "kr" : "게임 - 롤", "value" : "0"},
-  {"en" : "ani", "kr" : "애니", "value" : "0"}
+  {"en" : "animation", "kr" : "애니", "value" : "0"},
+  {"en" : "gomin", "kr" : "고민", "value" : "0"}
 ]

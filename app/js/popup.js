@@ -30,7 +30,7 @@ function setCategoryBox(){
   
   for(var i=0; i < categoryJSONArray.length; i++){
     if(categoryJSONArray[i].value == "1"){
-      categoryBox['categoryJSONArray[i].en'].value=true;
+      categoryBox[categoryJSONArray[i].en].checked=true;
     }
   }
 }
@@ -39,7 +39,7 @@ function getCategoryBox(){
   categoryBox = document.getElementById("categoryBox");
   
   for(var i=0; i < categoryJSONArray.length; i++){
-    if(categoryBox[categoryJSONArray[i].en].value == true){
+    if(categoryBox[categoryJSONArray[i].en].checked == true){
       categoryJSONArray[i].value = "1";
     }else{
       categoryJSONArray[i].value = "0";
