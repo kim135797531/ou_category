@@ -4,8 +4,6 @@ function initPopup(){
   var saveButton = document.getElementById('saveButton');
   saveButton.addEventListener('click', saveOptions, false);
   
-  var translateHashMap = new HashMap();
-  var valueHashMap = new HashMap();
   var categoryLoadListJSONArray = localStorage["category_list"];
   
   //첫 실행이면 data.js에서 기본값을 가져온다.
@@ -14,15 +12,14 @@ function initPopup(){
   }else{
     categoryJSONArray = JSON.parse(categoryLoadListJSONArray);
   }
-  initDataArray(translateHashMap, valueHashMap);
+  dynamicAddCheckBox();
   setCategoryBox();
 }
 
-function initDataArray(translateHashMap, valueHashMap){
-  for(var i=0; i < categoryJSONArray.length; i++){
-    translateHashMap.put(categoryJSONArray[i].en, categoryJSONArray[i].kr);
-    valueHashMap.put(categoryJSONArray[i].en,  categoryJSONArray[i].value);
-  }
+function dynamicAddCheckBox(){
+  categoryBox = document.getElementById("categoryBox");
+  for(var i=0; i < categoryJSONArray.length; i++)
+    categoryBox.innerHTML += '[<input type="checkbox" name='+categoryJSONArray[i].en+'>'+categoryJSONArray[i].kr+'</option>]  ';
 }
 
 function setCategoryBox(){
