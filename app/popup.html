@@ -1,12 +1,12 @@
 <!doctype html>
-<html>
+<html style="height:300px; overflow-y:scroll;">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>오유 카테고리 숨기기</title>
     <style>
       body {
         min-width: 357px;
-        overflow-x: hidden;
+        height:300px; overflow-y:scroll;
       }
 
       img {
@@ -29,12 +29,13 @@
     <script src="js/popup.js"></script>
   </head>
   <body>
+    <div id="layer_save_message" style="position: absolute; overflow: hidden; -webkit-box-shadow: rgb(153, 153, 153) 0px 0px 25px; right: 25px; bottom: 10px; border: 1px solid rgb(0, 0, 0); padding: 5px; display: none;background-color: rgb(255, 255, 225);">
+          <font style="font-size:13px; margin-left: 0px; font-size:12px;">저장이 되었습니다.</font>
+    </div>
     <h3>안 볼 게시판을 클릭하세용! ex) 동물</h3>
-    <form id="categoryBox" style="overflow-x:hidden; overflow-y:scroll">
-
+    <form id="categoryBox" style="float:left; display:inline;">
     </form>
     <br>
     <button id="saveButton">저장</button>
-    <br>
   </body>
 </html>

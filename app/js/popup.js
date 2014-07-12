@@ -19,7 +19,7 @@ function initPopup(){
 function dynamicAddCheckBox(){
   categoryBox = document.getElementById("categoryBox");
   for(var i=0; i < categoryJSONArray.length; i++)
-    categoryBox.innerHTML += '[<input type="checkbox" name='+categoryJSONArray[i].en+'>'+categoryJSONArray[i].kr+'</option>]  ';
+    categoryBox.innerHTML += '<div style="float:left; display:inline;">[<input type="checkbox" name='+categoryJSONArray[i].en+'>'+categoryJSONArray[i].kr+'</option>] <br><br></div>';
 }
 
 function setCategoryBox(){
@@ -47,6 +47,16 @@ function getCategoryBox(){
 function saveOptions(){
   getCategoryBox();
   localStorage["category_list"] = JSON.stringify(categoryJSONArray);
+  layerSaveMessage = document.getElementById("layer_save_message");
+  layerSaveMessage.style.display = "inline";  
+}
+
+function tweakWidthForScrollbar() {
+  var db = document.body;
+  var scrollBarWidth = db.scrollHeight > db.clientHeight ?
+      db.clientWidth - db.offsetWidth : 0;
+  db.style.paddingRight = scrollBarWidth + "px";
 }
 
 document.addEventListener('DOMContentLoaded', initPopup, false);
+document.addEventListener('onresize', tweakWidthForScrollbar, false);
