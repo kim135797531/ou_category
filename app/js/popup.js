@@ -1,8 +1,9 @@
 var categoryJSONArray;
 
 function initPopup(){
-  var saveButton = document.getElementById('saveButton');
-  saveButton.addEventListener('click', saveOptions, false);
+  $("#navbarTitle").html("오유 카테고리 v"+chrome.runtime.getManifest().version);
+  $("#creditButton").bind('click', showCredit);
+  $("#saveButton").bind('click', saveOptions);
   
   var categoryLoadListJSONArray = localStorage["category_list"];
   
@@ -17,26 +18,31 @@ function initPopup(){
 }
 
 function dynamicAddCheckBox(){
-  categoryBox = document.getElementById("categoryBox");
-  for(var i=0; i < categoryJSONArray.length; i++)
-    categoryBox.innerHTML += '<div style="float:left; display:inline;">[<input type="checkbox" name='+categoryJSONArray[i].en+'>'+categoryJSONArray[i].kr+'</option>] <br><br></div>';
+  for(var i=0; i < categoryJSONArray.length; i++){
+    var buttonHTML = '<button id='+categoryJSONArray[i].en+' type="button" class="btn btn-primary" data-toggle="button">'+categoryJSONArray[i].kr+'</button>';
+    $("#categoryBox").append(buttonHTML);
+    
+    $('#'+categoryJSONArray[i].en).click(function() {
+      if($(this).attr('class') == "btn btn-danger active"){
+        $(this).toggleClass("btn-danger btn-primary");
+      }else{
+        $(this).toggleClass("btn-primary btn-danger");
+      }
+    });
+  }
 }
 
 function setCategoryBox(){
-  categoryBox = document.getElementById("categoryBox");
-  
   for(var i=0; i < categoryJSONArray.length; i++){
     if(categoryJSONArray[i].value == "1"){
-      categoryBox[categoryJSONArray[i].en].checked=true;
+      $('#'+categoryJSONArray[i].en).toggleClass("btn-primary btn-danger active");
     }
   }
 }
 
 function getCategoryBox(){
-  categoryBox = document.getElementById("categoryBox");
-  
   for(var i=0; i < categoryJSONArray.length; i++){
-    if(categoryBox[categoryJSONArray[i].en].checked == true){
+    if($("#categoryBox").children().eq(i).attr('class') == "btn btn-danger active"){
       categoryJSONArray[i].value = "1";
     }else{
       categoryJSONArray[i].value = "0";
@@ -44,11 +50,19 @@ function getCategoryBox(){
   }
 }
 
+function showCredit(){
+  layerCredit = document.getElementById("layer_credit");
+  layerCredit.style.display = "inline";
+}
+
 function saveOptions(){
   getCategoryBox();
   localStorage["category_list"] = JSON.stringify(categoryJSONArray);
   layerSaveMessage = document.getElementById("layer_save_message");
-  layerSaveMessage.style.display = "inline";  
+  layerSaveMessage.style.display = "inline";
+  setTimeout(function(){
+    layerSaveMessage.style.display = "none";
+  }, 1500);
 }
 
 function tweakWidthForScrollbar() {
@@ -59,4 +73,4 @@ function tweakWidthForScrollbar() {
 }
 
 document.addEventListener('DOMContentLoaded', initPopup, false);
-document.addEventListener('onresize', tweakWidthForScrollbar, false);
+//document.addEventListener('onresize', tweakWidthForScrollbar, false);

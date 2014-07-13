@@ -1,41 +1,60 @@
 <!doctype html>
-<html style="height:300px; overflow-y:scroll;">
+<html>
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>오유 카테고리 숨기기</title>
-    <style>
-      body {
-        min-width: 357px;
-        height:300px; overflow-y:scroll;
-      }
-
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
-    </style>
-
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
-     
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
+    <script src="jquery/jquery-2.1.1.min.js"></script>
+    
     <script src="js/data.js"></script>
     <script src="js/popup.js"></script>
+    
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/popup.css" rel="stylesheet" media="screen">
   </head>
   <body>
-    <div id="layer_save_message" style="position: absolute; overflow: hidden; -webkit-box-shadow: rgb(153, 153, 153) 0px 0px 25px; right: 25px; bottom: 10px; border: 1px solid rgb(0, 0, 0); padding: 5px; display: none;background-color: rgb(255, 255, 225);">
+    <div id="layer_save_message" class="layer layer-message">
           <font style="font-size:13px; margin-left: 0px; font-size:12px;">저장이 되었습니다.</font>
     </div>
-    <h3>안 볼 게시판을 클릭하세용! ex) 동물</h3>
-    <form id="categoryBox" style="float:left; display:inline;">
-    </form>
-    <br>
-    <button id="saveButton">저장</button>
+    <div id="layer_credit" class="layer layer-credit">
+          <font style="font-size:13px; margin-left: 0px; font-size:12px;">
+          ★오유 카테고리 by ↓↓ASKY↑↑<br>
+          <br>
+          오유에서 보기 싫은 카테고리를 숨겨주는 프로그램입니다. 그런데 만든 오징어의 개발 능력이 형편 없어서 각종 버그가 발생할 수 있으므로 버그 제보를 통해 절 괴롭혀 주시기 바랍니다(?)<br>
+          <br>
+          버그 문의: kim135797531@naver.com<br>
+          GitHub 주소: <a href="https://github.com/kim135797531/ou_category" target="_blank">https://github.com/kim135797531/ou_category</a><br>
+          라이선스: 이 프로그램은 GPLv2 라이선스를 따릅니다. 그러므로 소스 코드 무단 도용시 저한테 혼날 수 있습니다..!</font>    
+    </div>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a id = "navbarTitle" class="navbar-brand" href="#">오유 카테고리</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+           <button id="creditButton" class="btn btn-inverse navbar-btn">만든 오징어</button>
+           <button id="saveButton" class="btn btn-inverse navbar-btn">저장</button>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    
+    <div class="container">
+      <div id="categoryBox" class="category-wrapper">
+      </div>
+    </div>
+    
+    <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
