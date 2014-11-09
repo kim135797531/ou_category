@@ -45,8 +45,14 @@ function checkTd(table_trList, category_link, category_list){
       for(var i=0; i < category_list.length; i++){
         if(category_list[i].value == "0")
           continue;
-        if(attr.indexOf(category_list[i].en) > 0)
-          return true;
+        if(category_list[i].blockMethod == "word"){
+          if(category_link[0].innerHTML.indexOf(category_list[i].en) >= 0){
+            return true;
+          }
+        }else{
+          if(attr.indexOf(category_list[i].en) >= 0)
+            return true;
+        }
       }
       return false;
     }
