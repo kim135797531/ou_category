@@ -32,7 +32,7 @@ function traverseTdList(table_trList, i, table_tdList, category_list){
         var category_link = table_tdList[j].getElementsByTagName("a");
         if(checkTd(table_trList, category_link, category_list)){
           table_trList[i].style.display = "none";
-          table_trList[i+1].style.display = "none";
+          //table_trList[i+1].style.display = "none";
         }
     }
   }
